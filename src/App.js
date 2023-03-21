@@ -15,7 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with Nick, who is experiecing an immense wave
+          of victory and relief after figuring out why his React wouldnt sync 
+          with his Github repository
         </a>
       </header>
     </div>
