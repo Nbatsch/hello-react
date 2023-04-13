@@ -1,24 +1,17 @@
 // import logo from './logo.svg';
 import './App.css';
-import {
-  createClient
-} from "https://cdn.skypack.dev/@supabase/supabase-js@2.11.0"
 import 'react-data-grid/lib/styles.css';
-import DataGrid from 'react-data-grid';
-import { useState } from 'react'
-import { Switch } from '@headlessui/react'
-import * as React from 'react';
-import { Button } from '@nextui-org/react';
-import Draggable from 'react-draggable';
+import { useState } from 'react';
+import { Switch } from '@headlessui/react';
+
+
 
 // 1. import `NextUIProvider` component
-import { NextUIProvider } from '@nextui-org/react';
 
-const supabaseUrl = 'https://lbbriaijfeimtqzsuzww.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxiYnJpYWlqZmVpbXRxenN1end3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg4NTAwNDYsImV4cCI6MTk5NDQyNjA0Nn0.CdqCxEb-PONqD64J6HHWgH_DOAaK0Eo-xukk4xCc0BE'
-const supabase = createClient(supabaseUrl, supabaseKey)
 
-const Component = () => <Button>Click me</Button>;
+
+
+
 
 
 
@@ -63,45 +56,18 @@ function GameLib() {
       }
     } > {
       game.title
-    } <
-    /li>
+    } 
+    </li>
   );
   return ( <
     ul > {
       listGames
-    } < /ul>
-  )
+    } 
+    </ul>
+  );
 }
 
-const columns = [{
-    key: 'id',
-    name: 'ID'
-  },
-  {
-    key: 'title',
-    name: 'Title'
-  }
-];
 
-const rows = [{
-    id: 0,
-    title: 'Example'
-  },
-  {
-    id: 1,
-    title: 'Demo'
-  }
-];
-
-function Spreadsheet() {
-  return <DataGrid columns = {
-    columns
-  }
-  rows = {
-    rows
-  }
-  />;
-}
 
 function Toggle() {
   const [enabled, setEnabled] = useState(false)
@@ -128,42 +94,31 @@ function Toggle() {
 
 
 function MagicButton() {
-  return ( <
-    >
-    <
-    h3 > This is a magic button < /h3> <
-    button > Magic < /button> < / >
+  return ( 
+  <div>
+    <h3> This is a magic button </h3> 
+    <button> Magic </button> </div>
   );
 }
 
 function SpinnyGif() {
-  return ( <
-    img src = "https://media.tenor.com/zFXNSUVN__MAAAAC/color-illusions.gif"
-    alt = "SpinGif" /
-    >
+  return ( <img src = "https://media.tenor.com/zFXNSUVN__MAAAAC/color-illusions.gif"
+    alt = "SpinGif" />
   );
 }
 
 
 
 function App() {
-  return ( <
-    div className = "App" >
-    <
-    header className = "App-header" >
+  return ( <div className = "App" >
+    <header className = "App-header" >
     <Toggle />
-    <
-    MagicButton / >
-   <
-    GameLib / >
-    <
-    SpinnyGif / >
+    <MagicButton />
+   <GameLib />
+    <SpinnyGif />
     I tried several other things, but they didn't work as intended 
-    <
-    /header> 
-    < /
-    div >
-
+    </header> 
+    </div>
   );
 }
 
