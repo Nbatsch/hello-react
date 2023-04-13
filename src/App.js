@@ -20,14 +20,7 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 const Component = () => <Button>Click me</Button>;
 
-function UI({ Component }) {
-  // 2. Use at the root of your app
-  return (
-    <NextUIProvider>
-      <Component />
-    </NextUIProvider>
-  );
-}
+
 
 
 
