@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+/* eslint-disable no-unused-vars */
 import { supabase } from './supabaseClient';
 import './App.css';
 import 'react-data-grid/lib/styles.css';
