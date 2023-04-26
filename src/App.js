@@ -1,21 +1,38 @@
 // import logo from './logo.svg';
+import { supabase } from './supabaseClient';
 import './App.css';
 import 'react-data-grid/lib/styles.css';
 import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 
-
-
 // 1. import `NextUIProvider` component
 
-
-
-
-
-
-
-
-
+function Library() {
+  const [myBooks, setMyBooks] = useState([]);
+  async function getBooks() {
+    let { data: Books, error } = await supabase
+      .from('Books')
+      .select('*')
+    setMyBooks(Books);
+  }
+  // getBooks();
+  return (
+    <>
+    <button onClick={getBooks}>Get Data</button>
+    <table border ="1" id='booktab'>
+    {
+      myBooks.map(b => (
+        <tr>
+          <td>{b.title}</td>
+          <td>{b.author}</td>
+          <td>{b.isbn}</td>
+        </tr>
+      ))
+    }
+    </table>
+    </>
+  )
+}
 
 
 const games = [{
@@ -94,10 +111,14 @@ function Toggle() {
 
 
 function MagicButton() {
+  const [count, setCount] = useState(0);
+  function doMagic() {
+    setCount(count + 1);
+  }
   return ( 
-  <div>
-    <h3> This is a magic button </h3> 
-    <button> Magic </button> </div>
+    <>
+      <h3> This is a magic button </h3> 
+      <button onClick={doMagic}> Magic {count}</button> </>
   );
 }
 
@@ -110,18 +131,18 @@ function SpinnyGif() {
 
 
 function App() {
-  return ( <div className = "App" >
-    <header className = "App-header" >
-    <Toggle />
-    <MagicButton />
-   <GameLib />
-    <SpinnyGif />
+  return ( 
+    <div className = "App" >
+      <header className = "App-header" >
+        <Library />
+        <Toggle />
+        <MagicButton />
+        <GameLib />
+        <SpinnyGif />
     I tried several other things, but they didn't work as intended 
     </header> 
     </div>
   );
 }
-
-
 
 export default App;
